@@ -27,15 +27,13 @@ public class BalanceController {
                               @RequestParam(value = "since") Integer since,
                               @RequestParam(value = "until") Integer until) {
 
-        List<Transaction> transactions = transactionRepository.findTransactionsByUserAndDate(user, since, until);
+        List<Transaction> transactions = transactionRepository.findTransactionsByUserAndDateInterval(user, since, until);
 
         Integer balance = 0;
         for (Transaction t : transactions) {
-            if (t.getSender().equals(user)) {
-                balance -= t.getSum();
-            } else {
-                balance += t.getSum();
-            }
+            // if user is receiver, add to balance else subtract
+            int sum = t.getReceiver().equals(user) ? t.getSum() : -t.getSum();
+            balance += sum;
         }
 
         return balance;

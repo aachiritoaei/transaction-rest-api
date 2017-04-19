@@ -22,6 +22,6 @@ public interface TransactionRepository extends MongoRepository<Transaction, Stri
                 "{'$or' : [{'sender' : ?0}, {'receiver' : ?0}]}," +
                 "{'timestamp' : {$gte : ?1, $lte : ?2}}" +
             "]}")
-    List <Transaction> findTransactionsByUserAndDate(Integer user, Integer startDate, Integer endDate);
+    List <Transaction> findTransactionsByUserAndDateInterval(Integer user, Integer startDate, Integer endDate);
 
 }

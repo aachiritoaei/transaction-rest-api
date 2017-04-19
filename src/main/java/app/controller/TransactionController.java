@@ -49,14 +49,9 @@ public class TransactionController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public Map<String, Object> getAllTransactions() {
-        List<Transaction> transactions = transactionRepository.findAll();
+    public List<Transaction> getAllTransactions() {
 
-        Map<String, Object> response = new LinkedHashMap<>();
-        response.put("totalTransactions", transactions.size());
-        response.put("transactions", transactions);
-
-        return response;
+        return transactionRepository.findAll();
     }
 
     @RequestMapping(method = RequestMethod.GET,
