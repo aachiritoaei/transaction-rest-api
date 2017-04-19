@@ -1,6 +1,5 @@
 # transaction-rest-api
 
-=========================
 How to create and run JAR
 =========================
 
