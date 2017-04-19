@@ -11,9 +11,11 @@ How to create and run docker images
 -----------------------------------
 
 Start mongo container:
+
 ```docker run -d -p 27017:27017 --name my_mongodb1 mongo```
 
 Create image:
+
 ```docker build -t transaction-api .```
 
 Run container:
