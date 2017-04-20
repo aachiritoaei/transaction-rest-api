@@ -9,11 +9,6 @@ Requirements
 How to run
 ----------
 
-```mvn package```
-```docker-compose up```
-
-OR
-
 ```./run.sh```
 
 How to clean (running containers and images)
@@ -39,40 +34,59 @@ Available API
 -------------
 
 - POST to http://127.0.0.1:5000/transactions/
-Adds a new transaction into the database given a JSON payload of the form
+
+Adds a new transaction into the database given a JSON payload of the form:
+
 {
-	"sender" : 		sender_id 	(integer)
-	"receiver" : 	receiver(id (integer)
-	"timestamp" : 	ts			(integer) -- epoch time
-	"sum" : 		x 			(integer)
+
+	"sender" : sender_id (integer)
+
+	"receiver" : receiver_id (integer)
+
+	"timestamp" : ts (integer) -- epoch time
+
+	"sum" : x (integer)
+
 }
 
 - DELETE to http://127.0.0.1:5000/transactions/deleteAll
+
 Clears the database.
 
 - GET to http://127.0.0.1:5000/transactions/
-Lists all the transaction in the database.
+
+Lists all the transactions in the database.
 
 - GET to http://127.0.0.1:5000/transactions/?user=XXXX&day=YYYY&threshold=ZZZZ
+
 Lists all transactions in which the user was involved in the given day, in
-transactions larger than threshold. 
+transactions larger than threshold.
+
 user 		- integer
+
 day 		- integer (date value in epoch time)
+
 threshold 	- integer
 
+
 - GET to http://127.0.0.1:5000/balance/?user=XXXX&since=YYYY&until=ZZZZ
+
 List the balance of a user, given a timeframe.
+
 user 		- integer
+
 since 		- integer (date value in epoch time)
+
 until 		- integer (date value in epoch time)
+
 
 Docker
 ------
-The application is deployed into two docker containers
+The application is deployed into two docker containers:
 - mongo -- contains the mongoDB
 - transactionrestapi_web_server -- contains the application JAR
 
-The application jar uses port 27017 exposed by the mongoDB container. It 
+The application JAR uses the port ``27017`` exposed by the mongoDB container. It 
 exposes the api at ``http://localhost:5000``.
 
 
@@ -81,8 +95,3 @@ TODO
 
 Add indexes.
 Add tests.
-
-
-
-
-
