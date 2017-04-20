@@ -21,8 +21,7 @@ public class BalanceController {
     @Autowired
     private TransactionRepository transactionRepository;
 
-    @RequestMapping(method = RequestMethod.GET,
-            params = {"user", "since", "until"})
+    @RequestMapping(method = RequestMethod.GET, params = {"user", "since", "until"})
     public Integer getBalance(@RequestParam(value = "user") Integer user,
                               @RequestParam(value = "since") Integer since,
                               @RequestParam(value = "until") Integer until) {

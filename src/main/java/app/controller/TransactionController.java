@@ -45,6 +45,7 @@ public class TransactionController {
 
         Map<String, Object> response = new LinkedHashMap<>();
         response.put("message", "All transactions deleted successfully");
+
         return response;
     }
 
@@ -54,8 +55,7 @@ public class TransactionController {
         return transactionRepository.findAll();
     }
 
-    @RequestMapping(method = RequestMethod.GET,
-            params = {"user", "day", "threshold"})
+    @RequestMapping(method = RequestMethod.GET, params = {"user", "day", "threshold"})
     public List<Transaction> getSuspiciousTransactions(@RequestParam(value = "user") Integer user,
                                                        @RequestParam(value = "day") Integer day,
                                                        @RequestParam(value = "threshold") Integer threshold) {
