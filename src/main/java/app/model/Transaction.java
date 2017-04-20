@@ -1,17 +1,25 @@
 package app.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.CompoundIndex;
+import org.springframework.data.mongodb.core.index.CompoundIndexes;
+import org.springframework.data.mongodb.core.index.IndexDirection;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * Created by Alexandru-Adrian Achiritoaei on 19.04.2017.
  */
 
+@Document(collection = "transaction")
 public class Transaction {
 
     @Id
     private String id;
     private Integer sender;
     private Integer receiver;
+
+    @Indexed
     private Integer timestamp;
     private Integer sum;
 

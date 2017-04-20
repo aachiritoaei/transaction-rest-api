@@ -6,15 +6,16 @@ Requirements
 - Docker Compose
 - Maven
 
+
 How to run
 ----------
 
-```./run.sh```
+```./run.sh``` -- on Linux
 
 How to clean (running containers and images)
 --------------------------------------------
 
-```./clean.sh```
+```./clean.sh``` -- on Linux
 
 Implementation details
 ----------------------
@@ -80,6 +81,9 @@ since 		- integer (date value in epoch time)
 until 		- integer (date value in epoch time)
 
 
+The database has an index on the timestamp field. Further documentation is needed
+to improve the queries for large data (compound indexes and background indexing).
+
 Docker
 ------
 The application is deployed into two docker containers:
@@ -93,5 +97,5 @@ exposes the api at ``http://localhost:5000``.
 TODO
 ----
 
-Add indexes.
+Improve indexes. 
 Add tests.
