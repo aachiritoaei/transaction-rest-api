@@ -31,6 +31,8 @@ is represented in the Model Layer as a Transaction.
 The Repository Layer offers the possibility to query the database.
 In the Controller Layer, the required API is exposed.
 
+** For this particular case, the Service Layer was skipped.
+
 Available API
 -------------
 
